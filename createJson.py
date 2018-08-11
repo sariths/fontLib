@@ -68,7 +68,7 @@ def createJsonFile(jsonPath="fontNames.json",fontDirectory="fonts"):
                     name=name.replace(key,value)
                 if key.capitalize() in name:
                     name = name.replace(key.capitalize(), value)
-            outputDict["fonts"][name.replace(" ","")]=os.path.split(fileName)[-1]
+            outputDict["fonts"][name.replace(" ","").replace("-","_")]=os.path.split(fileName)[-1]
 
     with open(jsonPath,"w") as jsonOutputData:
         json.dump(outputDict,jsonOutputData)
